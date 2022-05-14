@@ -7,6 +7,7 @@ static DIGITS: [char; 10] = [
     '\u{0669}',
 ];
 
+#[derive(Clone)]
 #[derive(Debug)]
 pub struct Numeral {
     pub digits: Vec<Digit>,
@@ -28,6 +29,7 @@ impl PartialEq<usize> for Numeral {
     }
 }
 
+#[derive(Clone)]
 #[derive(Debug)]
 pub struct Digit {
     pub to_char: char,
