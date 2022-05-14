@@ -70,8 +70,3 @@ fn test_nine() {
   assert_eq!('\u{0669}', numeral.digits[0].to_char);
 }
 
-#[test]
-fn test_partial_eq() {
-  let numeral = ean::from(1);
-  assert_eq!(numeral, 1);
-}
