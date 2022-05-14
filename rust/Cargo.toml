@@ -4,7 +4,7 @@ description = "A Rust library that can convert Western Arabic Numerals to Easter
 homepage = "https://github.com/0x1eef/ean/blob/master/rust#readme"
 repository = "https://github.com/0x1eef/ean/blob/master/rust#readme"
 readme = "README.md"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 license = "MIT"
 
