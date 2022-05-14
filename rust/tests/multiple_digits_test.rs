@@ -23,3 +23,9 @@ fn test_ltr() {
   assert_eq!(2, numeral.digits.len());
   assert_eq!("\u{0664}\u{0662}", format!("{}", numeral));
 }
+
+#[test]
+fn test_to_western_numeral() {
+  let numeral = ean::from(42);
+  assert_eq!(numeral.to_western_numeral, 42);
+}
