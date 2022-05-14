@@ -7,4 +7,5 @@ programming languages.
 * [Rust (ean.rs)](rust/) <br>
   An implementation in Rust.
 
-* ...
+* [Web Assembly (ean.wasm)](rust.wasm/) <br>
+  An implementation in Rust that compiles to a WebAssembly module.
