@@ -14,10 +14,8 @@ pub struct Numeral {
 
 impl fmt::Display for Numeral {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let str: String = self
-                          .digits
-                          .iter()
-                          .map(|digit| { digit.to_char })
+        let iter = self.digits.iter();
+        let str: String = .map(|digit| { digit.to_char })
                           .collect();
         write!(f, "{}", str)
     }
