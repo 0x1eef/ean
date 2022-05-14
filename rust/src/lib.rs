@@ -7,11 +7,7 @@ static DIGITS: [char; 10] = [
     '\u{0669}',
 ];
 
-pub struct Digit {
-    pub as_char: char,
-    pub as_wdigit: usize,
-}
-
+#[derive(Debug)]
 pub struct Numeral {
     pub digits: Vec<Digit>
 }
@@ -21,23 +17,36 @@ impl fmt::Display for Numeral {
         let str: String = self
                           .digits
                           .iter()
-                          .map(|digit| { digit.as_char })
+                          .map(|digit| { digit.to_char })
                           .collect();
         write!(f, "{}", str)
     }
 }
 
+impl PartialEq<usize> for Numeral {
+    fn eq(&self, other: &usize) -> bool {
+        let iter = self.digits.iter();
+        let number: usize = iter.map(|d| { d.to_western_digit.to_string() })
+                                .collect::<String>().parse().unwrap();
+        number == *other
+    }
+}
+
+#[derive(Debug)]
+pub struct Digit {
+    pub to_char: char,
+    pub to_western_digit: usize,
+}
+
 pub fn from(num: usize) -> Numeral {
     let str = num.to_string();
-    let mut numeral = Numeral {
-        digits: Vec::with_capacity(str.len())
-    };
+    let mut numeral = Numeral { digits: Vec::with_capacity(str.len()) };
 
     for char in str.chars() {
         let w_digit = char.to_digit(10).unwrap() as usize;
         numeral.digits.push(Digit {
-            as_char: DIGITS[w_digit].clone(),
-            as_wdigit: w_digit,
+            to_char: DIGITS[w_digit].clone(),
+            to_western_digit: w_digit,
         });
     }
 
