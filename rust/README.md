@@ -25,7 +25,7 @@ fn main() {
 }
 ```
 
-**2. Obtain the digits that make up an Eastern Arabic Numeral**
+**2. Obtain the digits of an Eastern Arabic Numeral**
 
 In the following example, we see how the digits that make
 up an Eastern Arabic Numeral can be accessed individually
