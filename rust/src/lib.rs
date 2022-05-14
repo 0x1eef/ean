@@ -1,3 +1,5 @@
+use std::fmt;
+
 static DIGITS: [char; 10] = [
     '\u{0660}', '\u{0661}', '\u{0662}',
     '\u{0663}', '\u{0664}', '\u{0665}',
@@ -12,6 +14,17 @@ pub struct Digit {
 
 pub struct Numeral {
     pub digits: Vec<Digit>
+}
+
+impl fmt::Display for Numeral {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let str: String = self
+                          .digits
+                          .iter()
+                          .map(|digit| { digit.as_char })
+                          .collect();
+        write!(f, "{}", str)
+    }
 }
 
 pub fn from(num: usize) -> Numeral {

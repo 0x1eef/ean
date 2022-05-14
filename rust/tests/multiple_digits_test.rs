@@ -17,3 +17,9 @@ fn test_four_twenty() {
   assert_eq!('\u{0660}', numeral.digits[2].as_char);
 }
 
+#[test]
+fn test_ltr() {
+  let numeral = ean::from(42);
+  assert_eq!(2, numeral.digits.len());
+  assert_eq!("\u{0664}\u{0662}", format!("{}", numeral));
+}
